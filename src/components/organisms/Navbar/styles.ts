@@ -6,6 +6,9 @@ export const Wrapper = styled.nav`
   display: flex;
   justify-content: center;
   background-color: var(--orange);
+  position: sticky;
+  top: 0;
+  z-index: 999;
 
   .container {
     display: flex;

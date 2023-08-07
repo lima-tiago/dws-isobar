@@ -5,6 +5,9 @@ export const Wrapper = styled.div`
   color: #666;
   width: 100%;
   font-size: 0.875rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
   .container {
     display: flex;
