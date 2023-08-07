@@ -10,12 +10,14 @@ import {
 import { Bands } from "types";
 
 export type BandsContextData = {
+  bands?: Bands[];
   filterAndSortBands?: Bands[];
   getAllBands: () => void;
   searchBands: string;
   setSearchBands: Dispatch<SetStateAction<string>>;
   sortBy: string;
   setSortBy: Dispatch<SetStateAction<string>>;
+  getBandById: (id: string) => Bands | undefined;
 };
 
 type BandsProviderProps = {
@@ -46,7 +48,7 @@ export const BandsProvider = ({ children }: BandsProviderProps) => {
   }, [bands, searchBands, sortBy]);
 
   const getAllBands = useCallback(() => {
-    const response = fetch(process.env.REACT_APP_API_URL as string).then(
+    const response = fetch(`${process.env.REACT_APP_API_URL}/bands`).then(
       async (res) => {
         const data = await res.json();
         setBands(data);
@@ -56,16 +58,33 @@ export const BandsProvider = ({ children }: BandsProviderProps) => {
     return response;
   }, []);
 
+  const getBandById = useCallback(
+    (id: string) => {
+      const bandSelected = bands?.find((band) => band.id === id);
+      return bandSelected;
+    },
+    [bands]
+  );
+
   const bandsProviderData = useMemo(() => {
     return {
+      bands,
       filterAndSortBands,
       getAllBands,
       searchBands,
       setSearchBands,
       sortBy,
       setSortBy,
+      getBandById,
     };
-  }, [filterAndSortBands, getAllBands, searchBands, sortBy]);
+  }, [
+    bands,
+    filterAndSortBands,
+    getAllBands,
+    getBandById,
+    searchBands,
+    sortBy,
+  ]);
 
   return (
     <BandsContext.Provider value={bandsProviderData}>

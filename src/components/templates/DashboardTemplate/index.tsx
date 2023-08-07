@@ -3,13 +3,17 @@ import { Navbar } from "components/organisms";
 import * as Style from "./styles";
 
 type DashboardTemplateProps = {
+  internalPage?: boolean;
   children: ReactNode;
 };
 
-export const DashboardTemplate = ({ children }: DashboardTemplateProps) => {
+export const DashboardTemplate = ({
+  internalPage = false,
+  children,
+}: DashboardTemplateProps) => {
   return (
     <Style.Wrapper>
-      <Navbar />
+      <Navbar internalPage={internalPage} />
       {children}
     </Style.Wrapper>
   );

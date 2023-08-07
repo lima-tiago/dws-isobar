@@ -30,7 +30,7 @@ export const Options = styled.span`
   background: #333;
   display: grid;
   text-align: left;
-  color: white;
+  color: var(--white);
 
   span {
     padding: 8px;

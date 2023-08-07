@@ -25,7 +25,10 @@ export const Sorting = ({ count, options }: SortingProps) => {
           {showOptions ? (
             <Style.Options>
               {options.map((option) => (
-                <span onClick={() => setSortBy(option.value)}>
+                <span
+                  onClick={() => setSortBy(option.value)}
+                  key={option.value}
+                >
                   {option.label}
                 </span>
               ))}

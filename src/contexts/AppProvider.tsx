@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
 import { BandsProvider } from "./BandsProvider";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import { Home } from "pages";
+import { DetailBand, Home } from "pages";
 
 type AppProviderProps = {
   children: ReactNode;
@@ -11,6 +11,10 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <Home />,
+  },
+  {
+    path: "/:bandId",
+    element: <DetailBand />,
   },
 ]);
 

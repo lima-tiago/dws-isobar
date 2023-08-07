@@ -29,3 +29,23 @@ export const Wrapper = styled.nav`
     font-weight: 600;
   }
 `;
+
+export const ButtonBack = styled.button`
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  background: transparent;
+  transition: background-color 0.3s;
+
+  &:hover {
+    background: rgba(0, 0, 0, 0.3);
+  }
+
+  img {
+    object-fit: contain;
+  }
+`;
