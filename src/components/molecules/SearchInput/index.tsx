@@ -5,14 +5,12 @@ import * as Style from "./styles";
 
 type SearchInputProps = {
   placeholder?: string;
-  onSubmit: () => void;
   value: string;
   onChange: (value: string) => void;
 };
 
 export const SearchInput = ({
   placeholder,
-  onSubmit,
   value,
   onChange,
 }: SearchInputProps) => {
@@ -24,9 +22,7 @@ export const SearchInput = ({
         value={value}
         onChange={(e) => onChange(e.target.value)}
       />
-      <button onClick={onSubmit}>
-        <img src={SearchIcon} alt="Search" width={18} height={18} />
-      </button>
+      <img src={SearchIcon} alt="Search" width={18} height={18} />
     </Style.Wrapper>
   );
 };

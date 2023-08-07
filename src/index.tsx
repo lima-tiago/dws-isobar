@@ -2,23 +2,17 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { GlobalStyle } from "./GlobalStyle";
 import reportWebVitals from "./reportWebVitals";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { Home } from "./pages";
-
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <Home />,
-  },
-]);
+import { AppProvider } from "contexts/AppProvider";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
+
 root.render(
   <React.StrictMode>
-    <GlobalStyle />
-    <RouterProvider router={router} />
+    <AppProvider>
+      <GlobalStyle />
+    </AppProvider>
   </React.StrictMode>
 );
 

@@ -1,22 +1,18 @@
-import { useState } from "react";
 import { SearchInput } from "components/molecules";
+import { useBands } from "hooks";
 
 import * as Style from "./styles";
 
 export const Navbar = () => {
-  const [searchValue, setSearchValue] = useState("");
-  const handleSearch = () => {
-    console.log(searchValue);
-  };
+  const { searchBands, setSearchBands } = useBands();
 
   return (
     <Style.Wrapper>
       <div className="container">
         <SearchInput
           placeholder="Search by name..."
-          onSubmit={handleSearch}
-          onChange={(value) => setSearchValue(value)}
-          value={searchValue}
+          onChange={(value) => setSearchBands(value)}
+          value={searchBands}
         />
         <span>isobar.fm</span>
       </div>
