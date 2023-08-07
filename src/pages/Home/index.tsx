@@ -1,11 +1,12 @@
+import { DashboardTemplate } from "components/templates";
 import * as Style from "./styles";
 
 export const Home = () => {
   return (
-    <Style.Main>
+    <DashboardTemplate>
       <div className="container">
         <h1>Home</h1>
       </div>
-    </Style.Main>
+    </DashboardTemplate>
   );
 };
