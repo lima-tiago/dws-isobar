@@ -73,6 +73,7 @@ export const Title = styled.div`
 export const Biography = styled.p`
   width: 100%;
   padding: 32px 0;
+  text-align: justify;
 `;
 
 export const Albums = styled.div`
