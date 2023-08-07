@@ -51,3 +51,11 @@ export const BandItem = styled.div`
     color: #666;
   }
 `;
+
+export const EmptyResults = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  min-height: 80vh;
+`;

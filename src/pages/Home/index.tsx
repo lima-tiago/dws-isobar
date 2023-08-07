@@ -1,10 +1,11 @@
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
 import { DashboardTemplate } from "components/templates";
 import { Sorting } from "components/organisms";
 import { useBands } from "hooks";
+import { NotFound } from "assets";
 
 import * as Style from "./styles";
-import { Link } from "react-router-dom";
 
 export const Home = () => {
   const { getAllBands, filterAndSortBands } = useBands();
@@ -43,7 +44,17 @@ export const Home = () => {
             </Style.Wrapper>
           </div>
         </>
-      ) : null}
+      ) : (
+        <Style.EmptyResults>
+          <h1>No results...</h1>
+          <img
+            src={NotFound}
+            alt="No results to your search"
+            width={200}
+            height={200}
+          />
+        </Style.EmptyResults>
+      )}
     </DashboardTemplate>
   );
 };
